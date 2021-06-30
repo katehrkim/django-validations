@@ -34,7 +34,8 @@ class SwimRecordTestCase(TestCase):
         try:
             self.record.full_clean()
         except ValidationError as e:
-            self.assertTrue("'None' value must be either True or False." in e.message_dict['relay'])
+            print(e.message_dict['relay'])
+            self.assertTrue('"None" value must be either True or False.' in e.message_dict['relay'])
 
     def test_05_valid_stroke(self):
         """validates that the stroke is one of 'front crawl', 'butterfly', 'breast', 'back', or 'freestyle'"""
