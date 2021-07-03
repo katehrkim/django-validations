@@ -34,7 +34,6 @@ class SwimRecordTestCase(TestCase):
         try:
             self.record.full_clean()
         except ValidationError as e:
-            print(e.message_dict['relay'])
             self.assertTrue('"None" value must be either True or False.' in e.message_dict['relay'])
 
     def test_05_valid_stroke(self):
